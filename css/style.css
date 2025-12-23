@@ -1,0 +1,471 @@
+/* --- MODERN SPOR SALONU TEMASI (DARK & NEON) --- */
+
+:root {
+    --bg-dark: #0f0f0f;       /* Çok koyu siyah */
+    --bg-card: #1a1a1a;       /* Kartlar için koyu gri */
+    --text-main: #ffffff;     /* Beyaz yazı */
+    --text-muted: #a0a0a0;    /* Gri yazı */
+    --accent: #cfff04;        /* NEON LİMON YEŞİLİ (Vurgu rengi) */
+    --accent-hover: #b3dd00;  /* Buton üzerine gelince */
+    --danger: #ff4757;        /* Hata rengi */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Modern Font */
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul { list-style: none; }
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER & NAVİGASYON --- */
+header {
+    background: rgba(15, 15, 15, 0.95); /* Hafif şeffaf */
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+    position: sticky; /* Sayfa kayınca üstte kalsın */
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Arkası buzlu cam gibi olsun */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #logo {
+    font-size: 1.8rem;
+    font-weight: 800; /* Çok kalın */
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header #logo span { color: var(--accent); } /* Logoda renk oyunu yapabiliriz */
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+header nav ul li a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+header nav ul li a:hover {
+    color: var(--accent); /* Neon renk */
+}
+
+/* --- HERO ALANI --- */
+.hero {
+    /* Resmin üzerine siyah perde çekiyoruz ki yazı okunsun */
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-dark)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 85vh; /* Ekranın %85'i */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- BUTONLAR --- */
+.btn, .form-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #000; /* Neon üstüne siyah yazı okunur */
+    padding: 15px 40px;
+    border-radius: 50px; /* Yuvarlak butonlar */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(207, 255, 4, 0.3); /* Neon gölge */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover, .form-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px); /* Hafif yukarı kalkma */
+    box-shadow: 0 10px 30px rgba(207, 255, 4, 0.5);
+}
+
+/* --- KARTLAR (Paketler, Özellikler) --- */
+.paketler, .feature-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Otomatik ızgara */
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.paket, .feature-item {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.paket:hover, .feature-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+}
+
+.paket h3, .feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.paket ul li {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.paket .fiyat {
+    font-size: 2rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-top: 30px;
+    display: block;
+}
+
+/* --- FORM KUTULARI (Giriş & Kayıt) --- */
+.form-container {
+    max-width: 450px;
+    margin: 80px auto;
+    background: var(--bg-card);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: #0f0f0f;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--accent); /* Tıklayınca neon çerçeve */
+}
+
+/* --- HAKKIMIZDA BÖLÜMÜ --- */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 80px 0;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px var(--bg-card); /* İlginç bir gölge efekti */
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #000;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+}
+
+/* --- MESAJ KUTULARI --- */
+.error-message {
+    background: rgba(255, 71, 87, 0.1);
+    color: var(--danger);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--danger);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.success-message {
+    background: rgba(207, 255, 4, 0.1);
+    color: var(--accent);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* MOBİL UYUMLULUK */
+@media (max-width: 768px) {
+    .hero-text h1 { font-size: 2.5rem; }
+    header .container { flex-direction: column; }
+    header nav ul { margin-top: 20px; }
+    header nav ul li { margin: 0 10px; }
+    .about-section { flex-direction: column; }
+}
+/* LİDERLİK TABLOSU TASARIMI */
+.lider-kutusu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.lider-kart {
+    background: var(--bg-card);
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    width: 250px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.lider-kart:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(207, 255, 4, 0.2);
+}
+
+/* 1. Olan Kişi (Altın) */
+.lider-kart.birinci {
+    border: 2px solid #f1c40f;
+    transform: scale(1.1); /* Biraz daha büyük */
+    z-index: 2;
+}
+.lider-kart.birinci h3 { color: #f1c40f; }
+
+/* 2. Olan Kişi (Gümüş) */
+.lider-kart.ikinci { border: 2px solid #bdc3c7; }
+.lider-kart.ikinci h3 { color: #bdc3c7; }
+
+/* 3. Olan Kişi (Bronz) */
+.lider-kart.ucuncu { border: 2px solid #e67e22; }
+.lider-kart.ucuncu h3 { color: #e67e22; }
+
+.lider-img {
+    width: 100px !important;  /* Genişliği zorla sabitle */
+    height: 100px !important; /* Yüksekliği zorla sabitle */
+    border-radius: 50%;       /* Yuvarlak yap */
+    object-fit: cover;        /* Resmi sündürme, ortadan kırp */
+    margin: 0 auto 15px;      /* Ortala */
+    border: 3px solid #fff;   /* Beyaz çerçeve */
+    display: block;           /* Satırda tek başına durmasını sağlar */
+}
+
+/* Kartın taşmasını da engelleyelim */
+.lider-kart {
+    overflow: hidden; /* Dışarı taşan her şeyi gizle */
+}
+/* --- MOBİL UYUMLULUK AYARLARI --- */
+@media only screen and (max-width: 768px) {
+    
+    /* 1. Genel Düzen */
+    .container {
+        width: 95%; /* Telefondan kenarlardan taşmasın */
+        padding: 0 10px;
+    }
+
+    /* 2. Menü (Header) */
+    header .container {
+        flex-direction: column; /* Logoyu ve menüyü alt alta al */
+        text-align: center;
+    }
+    
+    #logo {
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column; /* Linkleri alt alta diz */
+        gap: 10px;
+        padding: 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+        background: #1a1a1a; /* Telefondan basması kolay olsun diye arka plan */
+        border-radius: 5px;
+    }
+
+    /* 3. Kutuları Alt Alta Diz (Flex Yapıları Kır) */
+    /* İçinde 'flex' geçen tüm yapıları dikey yapıyoruz */
+    div[style*="display: flex"], 
+    .paketler, 
+    .program-container,
+    .lider-kutusu {
+        flex-direction: column !important; /* Yan yana durmayı yasakla */
+        align-items: stretch !important;
+        gap: 20px !important;
+    }
+
+    /* 4. Tablolar (Taşmayı Engelle) */
+    table {
+        display: block;
+        overflow-x: auto; /* Tablo sığmazsa yana kaydırılsın */
+        white-space: nowrap;
+    }
+
+    /* 5. Formlar */
+    .form-container, .form-group {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+    
+    input, select, textarea {
+        width: 100% !important;
+    }
+
+    /* 6. Profil Sayfası Özel */
+    .profil-img, .lider-img {
+        margin: 0 auto 15px !important; /* Resimleri ortala */
+    }
+    
+    div[style*="text-align: left"] {
+        text-align: center !important; /* Mobilde yazıları ortala */
+    }
+
+    /* Butonları tam genişlik yap */
+    .btn, button {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
+/* --- FITNESS ARAÇLARI GRID TASARIMI --- */
+
+.araclar-grid {
+   display: grid;
+    /* Zorla 4 Sütun Yap */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+}
+
+.arac-kutusu {
+    background: var(--bg-card); /* Senin koyu tema rengin */
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover (Üzerine gelince) Efekti */
+.arac-kutusu:hover {
+    transform: translateY(-5px); /* Hafif yukarı kalkar */
+    border-color: var(--accent); /* Kenarlık neon olur */
+    background: #222;
+    box-shadow: 0 5px 15px rgba(207, 255, 4, 0.1);
+}
+
+.ikon-daire {
+    width: 70px;
+    height: 70px;
+    background: #fff; /* İkonun arkası beyaz (Attığın fotoğraftaki gibi) */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    color: #e74c3c; /* İkon rengi kırmızı (Attığın fotoğraftaki gibi) */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Kutu içindeki başlık */
+.arac-kutusu h3 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* MOBİL AYARI */
+@media only screen and (max-width: 768px) {
+    .araclar-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mobilde yan yana 2 tane olsun */
+    }
+}
